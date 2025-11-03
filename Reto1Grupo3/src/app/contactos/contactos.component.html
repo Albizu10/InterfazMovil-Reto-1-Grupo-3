@@ -10,19 +10,25 @@
   <ion-list>
     <ion-card *ngFor="let contacto of results">
       <ion-item lines="none">
-        <img [src]="'data:image/png;base64,' + contacto.image_1920" 
-             class="contact-img" 
-             style="width: 50px; height: 50px;"/>
+        <div *ngIf="!contacto.image_1920" class="avatar-letter">
+         {{ contacto.name.charAt(0) }}
+       </div>
+        <img *ngIf="contacto.image_1920" [src]="'data:image/png;base64,' + contacto.image_1920" />
         <ion-label style="margin-left: 10px;">
           <h2>{{ contacto.name }}</h2>
-          <p>{{ contacto.phone || contacto.mobile }} <span>{{ contacto.email }}</span></p>
+          <p>{{ contacto.phone}} <span>{{ contacto.email }}</span></p>
         </ion-label>
+        <ion-fab horizontal="end" vertical="bottom">
+  <ion-fab-button style="--background: transparent; --border-radius: 0; --box-shadow: none; --color: white;" (click)="eliminar(contacto.id)">
+    <ion-icon name="close"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
       </ion-item>
     </ion-card>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 10px;">
-    <ion-fab-button (click)="getContactos()">
+    <ion-fab-button (click)="adduser()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

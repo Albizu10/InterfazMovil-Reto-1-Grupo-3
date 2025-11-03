@@ -19,19 +19,21 @@ respuesta:string="";
 
   ngOnInit() {}
 public login(){
-  this.apiService.postlogin(this.user,this.password).subscribe({
+  this.apiService.postlogin(this.user,this.password).subscribe ({
     next: (res)=>{
-      this.respuesta=res,
-      console.log("Login",res);
+       this.respuesta=  res;
+      console.log("Login",res.cookie);
       this.cambioderuta();
-    },error:(err)=> console.error("Error: ", err)
+      
+    },
   });
 }
+
+
 cambioderuta(){
-  if(this.respuesta.trim() === "Autenticacion completada con exito..."){
-    this.ruta.navigate(['/login']);
-  }else{
-    alert("Usuario o contraseña incorrecta");
-  }
+   if(this.respuesta.length>0)
+    console.log("Pasa")
+    this.ruta.navigate(['/contactos']);
 }
 }
+

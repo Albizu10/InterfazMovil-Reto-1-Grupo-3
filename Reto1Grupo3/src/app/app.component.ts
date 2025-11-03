@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { add } from 'ionicons/icons';
-
+import { close } from 'ionicons/icons';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,5 +13,6 @@ import { add } from 'ionicons/icons';
 export class AppComponent {
   constructor(private http:HttpClient) {
     addIcons({ add });
+    addIcons({ close });
   }
 }

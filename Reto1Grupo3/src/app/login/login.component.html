@@ -6,10 +6,10 @@
           <img src="http://odoogroup3.duckdns.org/web/image/website/1/logo/My%20Website?unique=abd813f" class="logo"/>
         </ion-item>
         <ion-item>
-          <ion-input type="email" placeholder="Email" [(ngModel)]="user"></ion-input>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="user" required="true"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password" required="true"></ion-input>
         </ion-item>
         <ion-button expand="block" color="primary" shape="round" (click)="login()">
           Iniciar sesión
