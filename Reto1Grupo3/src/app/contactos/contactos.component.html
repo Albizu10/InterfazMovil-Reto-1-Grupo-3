@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Buscar contacto" (ionInput)="handleInput($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-card *ngFor="let contacto of results">
+      <ion-item lines="none">
+        <img [src]="'data:image/png;base64,' + contacto.image_1920" 
+             class="contact-img" 
+             style="width: 50px; height: 50px;"/>
+        <ion-label style="margin-left: 10px;">
+          <h2>{{ contacto.name }}</h2>
+          <p>{{ contacto.phone || contacto.mobile }} <span>{{ contacto.email }}</span></p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 10px;">
+    <ion-fab-button (click)="getContactos()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

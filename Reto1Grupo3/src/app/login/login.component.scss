@@ -1,0 +1,23 @@
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.logo {
+  width: 80%;
+  margin: 0 auto 30px auto;
+  display: block;
+}
