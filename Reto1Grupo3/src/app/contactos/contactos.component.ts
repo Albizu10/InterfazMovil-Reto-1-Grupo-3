@@ -29,13 +29,11 @@ export class ContactosComponent  implements OnInit {
     })
   }
   adduser(){
-     console.log("Pasa")
     this.ruta.navigate(['/anadircontactos']);
 
   }
   eliminar(id:any){
     if (confirm("Seguro que deseas eliminar este usuario?")){
-      
       console.log("ID",id)
       this.apiService.eliminar(id).subscribe({
         next: (res)=>{
@@ -49,9 +47,12 @@ export class ContactosComponent  implements OnInit {
       })
     }else{ return;}
   }
-  handleInput(event: Event) {
+  modificar(id:any){
+    this.ruta.navigate(['/modificarcontactos',id]);
+  }
+ handleInput(event: Event) {
     const target = event.target as HTMLIonSearchbarElement;
     const query = target.value?.toLowerCase() || '';
-    this.results = this.contactos.filter((d) => d.name.toLowerCase().includes(query) || d.phone.includes(query) ||d.mobile.includes(query) );
+    this.results = this.contactos.filter((data) => data.name.toLowerCase().includes(query) || (data.phone && data.phone.includes(query)) || (data.mobile && data.mobile.includes(query)) || (data.email && data.email.toLowerCase().includes(query)));
   }
 }

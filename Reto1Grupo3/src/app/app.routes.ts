@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: 'login',loadComponent: () => import('./login/login.component').then((m) => m.LoginComponent),},
   { path: 'contactos',loadComponent: () => import('./contactos/contactos.component').then((m) => m.ContactosComponent),},
   { path: 'anadircontactos',loadComponent: () => import('./anadircontactos/anadircontactos.component').then((m) => m.AnadircontactosComponent),},
+  { path: 'modificarcontactos/:id',loadComponent: () => import('./modificacion-contacto/modificacion-contacto.component').then((m) => m.ModificacionContactoComponent),},
 
 ];

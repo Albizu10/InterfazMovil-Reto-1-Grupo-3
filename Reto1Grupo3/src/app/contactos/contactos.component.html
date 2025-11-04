@@ -9,7 +9,7 @@
 
   <ion-list>
     <ion-card *ngFor="let contacto of results">
-      <ion-item lines="none">
+      <ion-item lines="none" (click)="modificar(contacto.id)">
         <div *ngIf="!contacto.image_1920" class="avatar-letter">
          {{ contacto.name.charAt(0) }}
        </div>
