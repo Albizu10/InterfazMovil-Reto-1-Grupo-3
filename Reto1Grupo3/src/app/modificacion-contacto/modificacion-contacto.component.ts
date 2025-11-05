@@ -8,7 +8,7 @@ import { ToastController } from '@ionic/angular';
   selector: 'app-modificacion-contacto',
   templateUrl: './modificacion-contacto.component.html',
   styleUrls: ['./modificacion-contacto.component.scss'],
-  imports: [IonItem, IonLabel, IonContent, IonCard, IonTitle, IonHeader, IonBackButton, IonButtons, IonList, IonInput, IonTextarea, IonToolbar, FormsModule, IonIcon, IonButton, FormsModule, IonGrid, IonRow, IonCol],
+  imports: [IonItem, IonLabel, IonContent, IonCard, IonTitle, IonHeader, IonBackButton, IonButtons, IonList, IonInput, IonToolbar, FormsModule, IonIcon, IonButton, FormsModule, IonGrid, IonRow, IonCol],
 })
 export class ModificacionContactoComponent implements OnInit {
   resultado: any = [];
@@ -31,6 +31,7 @@ export class ModificacionContactoComponent implements OnInit {
     this.getusuario(id);
   }
   modificar() {
+    if(!this.comprobacion()){return;}
     this.apiServices.modificar(this.id,this.contacto[0].name,this.contacto[0].email,this.contacto[0].phone,this.contacto[0].vat,this.contacto[0].street,this.contacto[0].city,this.contacto[0].image_1920).subscribe({
       next: (res) => {
         this.resultado = res;
@@ -85,5 +86,16 @@ async mostrarToast(mensaje: string, color: string = 'primary') {
         this.Contactos();
       }
     })
+  }
+  comprobacion(){
+    const soloNumeros = /^[0-9]+$/;
+    if((!this.contacto[0].email.includes("@")) || (!soloNumeros.test(this.contacto[0].phone))){
+      this.mostrarToast("introduzca bien la informacion de los campos",'danger');
+      return false;
+    }else{
+      return true;
+    }
+    
+
   }
 }
