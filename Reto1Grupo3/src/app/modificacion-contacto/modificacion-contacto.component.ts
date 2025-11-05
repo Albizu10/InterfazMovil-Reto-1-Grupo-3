@@ -19,6 +19,7 @@ export class ModificacionContactoComponent implements OnInit {
     city:"",
     street:"",
     vat:"",
+    function:"",
     image_1920:""
   }];
   private id=0;
@@ -80,7 +81,7 @@ async mostrarToast(mensaje: string, color: string = 'primary') {
     this.apiServices.getusuario(id).subscribe({
       next: (res) => {
         this.contacto = res;
-        //console.log("GetUsuario", res)
+        console.log("GetUsuario", res)
       }, error: (err) => {
         console.error("Error con la llamada get", err);
         this.Contactos();

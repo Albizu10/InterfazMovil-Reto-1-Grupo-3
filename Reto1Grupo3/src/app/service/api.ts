@@ -13,8 +13,8 @@ export class API {
     return this.http.post(`${this.url}login`, body, {withCredentials:true});
   }
 
-  anadirusuario(name:string,email:string,phone:string,job:string,street:string,city:string): Observable<any> {
-    const body ={name:name, email:email,phone:phone,function:job,street:street,city:city};
+  anadirusuario(name:string,email:string,phone:string,job:string,street:string,city:string,vat:string): Observable<any> {
+    const body ={name:name, email:email,phone:phone,function:job,street:street,city:city,vat:vat};
     //console.log(body)
     return this.http.post(`${this.url}nuevo/res.partner`, body, {withCredentials:true});
   }
@@ -36,6 +36,6 @@ export class API {
     return this.http.get(`${this.url}getDatosFiltro/res.partner?campos=[\"name\",\"id\",\"phone\",\"email\",\"image_1920\",\"vat\",\"city\",\"street\"]`,{withCredentials:true});
   }
   getusuario(id:any): Observable<any> {
-    return this.http.get(`${this.url}getDatosFiltro/res.partner?campos=[\"name\",\"id\",\"phone\",\"email\",\"image_1920\",\"vat\",\"city\",\"street\"]&filtros=[["id","=",${id}]]`,{withCredentials:true});
+    return this.http.get(`${this.url}getDatosFiltro/res.partner?campos=[\"name\",\"id\",\"phone\",\"email\",\"image_1920\",\"vat\",\"city\",\"street\",\"function\",\"vat\"]&filtros=[["id","=",${id}]]`,{withCredentials:true});
   }
 }

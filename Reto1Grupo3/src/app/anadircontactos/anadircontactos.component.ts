@@ -20,13 +20,15 @@ phone:string="";
 job:string="";
 street:string="";
 city:string="";
+vat:string=""
 respuesta:any=[];
+
   constructor(private apiService:API, private ruta:Router,private toastcontroller:ToastController) { }
 
   ngOnInit() {}
   adduser(){
     if(!this.comprobacion()){return;}
-    this.apiService.anadirusuario(this.name,this.email,this.phone,this.job,this.street,this.city).subscribe({
+    this.apiService.anadirusuario(this.name,this.email,this.phone,this.job,this.street,this.city,this.vat).subscribe({
       next: (res)=>{
         this.respuesta=res
         //console.log("Añadiendo",res)

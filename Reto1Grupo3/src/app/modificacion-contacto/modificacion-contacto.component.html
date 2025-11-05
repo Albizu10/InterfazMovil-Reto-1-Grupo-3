@@ -60,6 +60,12 @@
         <ion-label position="stacked">NIF / VAT</ion-label>
         <ion-input   [(ngModel)]="contacto[0].vat"></ion-input>
       </ion-item>
+
+      <ion-item>
+            <ion-label position="stacked">Puesto de trabajo</ion-label>
+            <ion-input type="text" name="job" [(ngModel)]="contacto[0].function" required></ion-input>
+          </ion-item>
+
     </ion-list>
   </ion-card>
 </ion-content>
