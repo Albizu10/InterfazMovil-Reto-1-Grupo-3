@@ -13,8 +13,8 @@ export class API {
     return this.http.post(`${this.url}login`, body, {withCredentials:true});
   }
 
-  anadirusuario(name:string,email:string,phone:string,job:string,street:string,city:string,vat:string): Observable<any> {
-    const body ={name:name, email:email,phone:phone,function:job,street:street,city:city,vat:vat};
+  anadirusuario(name:string,email:string,phone:string,job:string,street:string,city:string,vat:string,type:string): Observable<any> {
+    const body ={name:name, email:email,phone:phone,function:job,street:street,city:city,vat:vat,type:type};
     //console.log(body)
     return this.http.post(`${this.url}nuevo/res.partner`, body, {withCredentials:true});
   }
