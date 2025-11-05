@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonItem, IonLabel, IonButton, IonText, IonInput, IonContent, IonTitle, IonToolbar, IonHeader, IonIcon, IonList, IonCardTitle, IonCard, IonCardHeader, IonButtons, IonBackButton } from "@ionic/angular/standalone";
+import { IonItem, IonLabel, IonButton, IonText, IonInput, IonContent, IonTitle, IonToolbar, IonHeader, IonIcon, IonList, IonCardTitle, IonCard, IonCardHeader, IonButtons, IonBackButton, IonRow, IonGrid, IonCol } from "@ionic/angular/standalone";
 import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { API } from '../service/api';
@@ -11,19 +11,22 @@ import {ToastController} from "@ionic/angular"
   selector: 'app-anadircontactos',
   templateUrl: './anadircontactos.component.html',
   styleUrls: ['./anadircontactos.component.scss'],
-  imports: [IonItem, IonLabel, IonButton, IonText, IonInput, IonContent, IonTitle, IonToolbar, IonHeader, IonIcon, IonList, IonCard, FormsModule, IonCardTitle, IonButtons, IonBackButton],
+  imports: [IonItem, IonLabel, IonButton, IonText, IonInput, IonContent, IonTitle, IonToolbar, IonHeader, IonIcon, IonList, IonCard, FormsModule, IonCardTitle, IonButtons, IonBackButton, IonRow, IonGrid, IonCol],
 })
 export class AnadircontactosComponent  implements OnInit {
 name:string="";
 email:string="";
 phone:string="";
+job:string="";
+street:string="";
+city:string="";
 respuesta:any=[];
   constructor(private apiService:API, private ruta:Router,private toastcontroller:ToastController) { }
 
   ngOnInit() {}
   adduser(){
     if(!this.comprobacion()){return;}
-    this.apiService.anadirusuario(this.name,this.email,this.phone).subscribe({
+    this.apiService.anadirusuario(this.name,this.email,this.phone,this.job,this.street,this.city).subscribe({
       next: (res)=>{
         this.respuesta=res
         console.log("Añadiendo",res)
