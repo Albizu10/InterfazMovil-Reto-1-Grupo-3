@@ -1,16 +1,15 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/contactos"></ion-back-button>
     </ion-buttons>
-
     <div class="toolbar-inline">
       <ion-title >{{contacto[0].name}}</ion-title>
       <ion-buttons>
-        <ion-button color="light" (click)="eliminar()">
+        <ion-button color="primary" (click)="eliminar()">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-button>
-        <ion-button color="light" (click)="modificar()">
+        <ion-button color="primary" (click)="modificar()">
           <ion-icon slot="icon-only" name="checkmark"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -41,15 +40,25 @@
         <ion-label position="stacked">Correo</ion-label>
         <ion-input  [(ngModel)]="contacto[0].email"></ion-input>
       </ion-item>
+<ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-label position="stacked">Ciudad</ion-label>
+        <ion-input [(ngModel)]="contacto[0].city"></ion-input>
+      </ion-col>
 
-      <ion-item>
-        <ion-label position="stacked">Dirección</ion-label>
-        <ion-textarea  [(ngModel)]="contacto[0].city"></ion-textarea>
-      </ion-item>
+      <ion-col size="6">
+        <ion-label position="stacked">Calle</ion-label>
+        <ion-input [(ngModel)]="contacto[0].street"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
 
       <ion-item>
         <ion-label position="stacked">NIF / VAT</ion-label>
-        <ion-input   [(ngModel)]="contacto[0].var_label"></ion-input>
+        <ion-input   [(ngModel)]="contacto[0].vat"></ion-input>
       </ion-item>
     </ion-list>
   </ion-card>

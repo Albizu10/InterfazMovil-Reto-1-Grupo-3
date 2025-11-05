@@ -21,3 +21,10 @@ ion-content {
   margin: 0 auto 30px auto;
   display: block;
 }
+  .mi-toast-pequeno {
+  --width: 180px;         /* ancho fijo */
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --border-radius: 8px;
+  font-size: 0.8rem;
+}

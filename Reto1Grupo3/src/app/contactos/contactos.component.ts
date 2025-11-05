@@ -5,6 +5,7 @@ import { API } from '../service/api';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {ToastController} from '@ionic/angular';
 @Component({
   selector: 'app-contactos',
   templateUrl: './contactos.component.html',
@@ -15,15 +16,15 @@ export class ContactosComponent  implements OnInit {
  contactos:any[]=[];
  results:any[]=[];
  resultado:any=[];
-  constructor(private apiService:API,private http:HttpClient,private ruta:Router) { }
+  constructor(private apiService:API,private http:HttpClient,private ruta:Router,private toastcontroller:ToastController) { }
 
 
   ngOnInit() {this.getContactos()}
-  getContactos(){
-    this.apiService.getcontactos().subscribe({
-      next: (res)=>{
-        this.contactos=res
-        this.results = [...res];
+    getContactos(){
+      this.apiService.getcontactos().subscribe({
+        next: (res)=>{
+          this.contactos=res
+          this.results = [...res];
         console.log("Contactos",res)
       },error:(err)=> console.error("Error: ", err)
     })
@@ -31,21 +32,6 @@ export class ContactosComponent  implements OnInit {
   adduser(){
     this.ruta.navigate(['/anadircontactos']);
 
-  }
-  eliminar(id:any){
-    if (confirm("Seguro que deseas eliminar este usuario?")){
-      console.log("ID",id)
-      this.apiService.eliminar(id).subscribe({
-        next: (res)=>{
-          this.resultado=res;
-          console.log("Eliminar",res)
-          alert("Usuario eliminado correctamente");
-          this.getContactos();
-        },error: (err) => {
-          console.error("Error al eliminar usuario:", err);
-        }
-      })
-    }else{ return;}
   }
   modificar(id:any){
     this.ruta.navigate(['/modificarcontactos',id]);
