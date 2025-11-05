@@ -25,7 +25,7 @@ export class ContactosComponent  implements OnInit {
         next: (res)=>{
           this.contactos=res
           this.results = [...res];
-        console.log("Contactos",res)
+        //console.log("Contactos",res)
       },error:(err)=> console.error("Error: ", err)
     })
   }

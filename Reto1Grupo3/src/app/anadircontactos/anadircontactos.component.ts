@@ -29,7 +29,7 @@ respuesta:any=[];
     this.apiService.anadirusuario(this.name,this.email,this.phone,this.job,this.street,this.city).subscribe({
       next: (res)=>{
         this.respuesta=res
-        console.log("Añadiendo",res)
+        //console.log("Añadiendo",res)
         this.mostrarToast("Añadido correctamente el nuevo usuario", 'success')
         this.contactos();
       },error: (err) => {

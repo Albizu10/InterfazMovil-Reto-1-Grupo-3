@@ -36,7 +36,7 @@ export class ModificacionContactoComponent implements OnInit {
       next: (res) => {
         this.resultado = res;
         this.mostrarToast("Usuario modificado",'success')
-        console.log("Modificar", res)
+        //console.log("Modificar", res)
         this.Contactos();
       }, error: (err) => {
         console.error("Error al eliminar usuario:", err);
@@ -56,11 +56,11 @@ async mostrarToast(mensaje: string, color: string = 'primary') {
 }
   eliminar(){
     if (confirm("Seguro que deseas eliminar este usuario?")){
-      console.log("ID",this.id)
+      //console.log("ID",this.id)
       this.apiServices.eliminar(this.id).subscribe({
         next: (res)=>{
           this.resultado=res;
-          console.log("Eliminar",res)
+          //console.log("Eliminar",res)
           this.mostrarToast("Usuario eliminador correctamente",'success')
           this.Contactos();
         },error: (err) => {
@@ -71,16 +71,16 @@ async mostrarToast(mensaje: string, color: string = 'primary') {
     }else{ return;}
   }
   Contactos(){
-    console.log("Pasa")
+    //console.log("Pasa")
     this.ruta.navigate(['/contactos']);
 }
   getusuario(id: any) {
     this.id=id;
-    console.log("GETUSER",id)
+    //console.log("GETUSER",id)
     this.apiServices.getusuario(id).subscribe({
       next: (res) => {
         this.contacto = res;
-        console.log("GetUsuario", res)
+        //console.log("GetUsuario", res)
       }, error: (err) => {
         console.error("Error con la llamada get", err);
         this.Contactos();

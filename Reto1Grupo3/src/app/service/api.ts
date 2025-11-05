@@ -15,7 +15,7 @@ export class API {
 
   anadirusuario(name:string,email:string,phone:string,job:string,street:string,city:string): Observable<any> {
     const body ={name:name, email:email,phone:phone,function:job,street:street,city:city};
-    console.log(body)
+    //console.log(body)
     return this.http.post(`${this.url}nuevo/res.partner`, body, {withCredentials:true});
   }
   eliminar(id:any):Observable<any>{

@@ -25,7 +25,7 @@ public login(){
   this.apiService.postlogin(this.user,this.password).subscribe ({
     next: async (res)=>{
        this.respuesta=  res;
-       console.log("Login",this.respuesta);
+       //console.log("Login",this.respuesta);
        this.cambioderuta();if (this.respuesta.mensaje === "Autenticación exitosa") {
         await this.mostrarToast('Login Correcto', 'success');
         this.cambioderuta();
@@ -53,7 +53,6 @@ async mostrarToast(mensaje: string, color: string = 'primary') {
 
 cambioderuta(){
    if(this.respuesta.length>0)
-   
     console.log("Pasa")
     this.ruta.navigate(['/contactos']);
 }
